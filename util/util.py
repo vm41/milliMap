@@ -8,7 +8,7 @@ import os
 # Converts a Tensor into a Numpy array
 # |imtype|: the desired type of the converted numpy array
 def tensor2im(image_tensor, imtype=np.uint8, normalize=True):
-    if isinstance(image_tensor, list):
+    if isinstance(image_tensor, list):           #isinstance: if image_tensor belongs to list then true else false
         image_numpy = []
         for i in range(len(image_tensor)):
             image_numpy.append(tensor2im(image_tensor[i], imtype, normalize))
