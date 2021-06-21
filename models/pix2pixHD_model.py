@@ -10,16 +10,21 @@ from util.image_pool import ImagePool
 from .base_model import BaseModel
 from . import networks
 
-class Pix2PixHDModel(BaseModel):
+#pix2pixHDModel class includes building models, defining optimizers and loss functions, and importing models
+class Pix2PixHDModel(BaseModel): # Inherited from the BaseModel class, which mainly contains save and load model functions
     def name(self):
         return 'Pix2PixHDModel'
+    # loss filter: three loss values of g_gan, d_real and d_fake are definitely returned
+    # As for g_gan_feat, the two loss values of g_vgg depend on the opt.no_ganFeat_loss, not opt.no_vgg_loss of train_options
+    # Remarks: This function is just a filter, not only can filter out the loss value, but also filter out the loss name
     
     def init_loss_filter(self, use_gan_feat_loss, use_vgg_loss, use_edge_loss):
         flags = (True, use_gan_feat_loss, use_vgg_loss, use_edge_loss, True, True)
         def loss_filter(g_gan, g_gan_feat, g_vgg, g_edge, d_real, d_fake):
-            return [l for (l,f) in zip((g_gan,g_gan_feat,g_vgg,g_edge,d_real,d_fake),flags) if f]
-        return loss_filter
+            return [l for (l,f) in zip((g_gan,g_gan_feat,g_vgg,g_edge,d_real,d_fake),flags) if f] # When f is True, return the corresponding l, where l represents the loss value
+        return loss_filter # The last returned value is the activated loss value, the false loss value is not recorded
     
+    #some settings for Pix2PixHDModel in the initialize function
     def initialize(self, opt):
         BaseModel.initialize(self, opt)
         if opt.resize_or_crop != 'none' or not opt.isTrain: # when training at full res this causes OOM
