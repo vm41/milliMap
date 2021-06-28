@@ -1,4 +1,4 @@
-import dominate
+import dominate #dominate is for creating html pages using python language
 from dominate.tags import *
 import os
 
