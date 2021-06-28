@@ -112,7 +112,7 @@ class GANLoss(nn.Module):
             target_tensor = self.get_target_tensor(input[-1], target_is_real)
             return self.loss(input[-1], target_tensor)
 
-class VGGLoss(nn.Module):
+class VGGLoss(nn.Module): #The VGG loss is another content loss function, which is applied over generated images and real images.
     def __init__(self, gpu_ids):
         super(VGGLoss, self).__init__()        
         self.vgg = Vgg19().cuda()
