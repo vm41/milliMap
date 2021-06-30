@@ -1,9 +1,9 @@
 ### Copyright (C) 2017 NVIDIA Corporation. All rights reserved. 
 ### Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 # contains save and load model functions
-import os
+import os #The OS module in Python provides functions for interacting with the operating system. OS comes under Python's standard utility modules. This module provides a portable way of using operating system dependent functionality. The *os* and *os. path* modules include many functions to interact with the file system
 import torch
-import sys
+import sys #the sys module provides information about constants, functions and methods of the Python interpreter
 
 class BaseModel(torch.nn.Module):
     def name(self):
