@@ -1,15 +1,15 @@
-import os
+import os    #import all required modules
 import sys
 from random import randint
 import numpy as np
 import tensorrt
 
 try:
-    from PIL import Image
-    import pycuda.driver as cuda
+    from PIL import Image  #Python Imaging Library adds support for opening, manipulating, and saving many different image file formats 
+    import pycuda.driver as cuda #PyCUDA gives you easy, Pythonic access to Nvidia’s CUDA parallel computation API
     import pycuda.gpuarray as gpuarray
     import pycuda.autoinit
-    import argparse
+    import argparse #argparse is the “recommended command-line parsing module in the Python standard library.”
 except ImportError as err:
     sys.stderr.write("""ERROR: failed to import module ({})
 Please make sure you have pycuda and the example dependencies installed.
@@ -19,7 +19,7 @@ pip(3) install tensorrt[examples]
     exit(1)
 
 try:
-    import tensorrt as trt
+    import tensorrt as trt  #NVIDIA® TensorRT™ is an SDK for high-performance deep learning inference. It includes a deep learning inference optimizer and runtime that delivers low latency and high throughput for deep learning inference applications.
     from tensorrt.parsers import caffeparser
     from tensorrt.parsers import onnxparser    
 except ImportError as err:
