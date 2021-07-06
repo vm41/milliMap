@@ -85,7 +85,7 @@ def labelcolormap(N):
 class Colorize(object):
     def __init__(self, n=35):
         self.cmap = labelcolormap(n)
-        self.cmap = torch.from_numpy(self.cmap[:n])
+        self.cmap = torch.from_numpy(self.cmap[:n]) #Creates a Tensor from a numpy.ndarray.The returned tensor and ndarray share the same memory. Modifications to the tensor will be reflected in the ndarray and vice versa. The returned tensor is not resizable.
 
     def __call__(self, gray_image):
         size = gray_image.size()
