@@ -65,7 +65,7 @@ class BaseModel(torch.nn.Module):
                 network.load_state_dict(torch.load(save_path))
             except:   
                 pretrained_dict = torch.load(save_path)                
-                model_dict = network.state_dict()
+                model_dict = network.state_dict() #In PyTorch, the learnable parameters (i.e. weights and biases) of a torch.nn.Module model are contained in the model’s parameters (accessed with model.parameters()). A state_dict is simply a Python dictionary object that maps each layer to its parameter tensor.
                 try:
                     pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}                    
                     network.load_state_dict(pretrained_dict)
