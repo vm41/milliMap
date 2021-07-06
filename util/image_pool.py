@@ -27,5 +27,5 @@ class ImagePool():
                     return_images.append(tmp)
                 else:
                     return_images.append(image)
-        return_images = Variable(torch.cat(return_images, 0))
+        return_images = Variable(torch.cat(return_images, 0)) #A PyTorch Variable is a wrapper around a PyTorch Tensor
         return return_images
