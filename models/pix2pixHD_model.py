@@ -96,7 +96,7 @@ class Pix2PixHDModel(BaseModel): # Inherited from the BaseModel class, which mai
                                                'D_real', 'D_fake')
 
             # initialize optimizers
-            # optimizer G
+            # optimizer G  #Optimizers are algorithms or methods used to change the attributes of the neural network such as weights and learning rate to reduce the losses
             if opt.niter_fix_global > 0:                
                 import sys
                 if sys.version_info >= (3,0):
