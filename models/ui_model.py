@@ -71,7 +71,7 @@ class UIModel(BaseModel):
         self.features_clustered = np.load(feat_path).item()
         self.object_map = self.inst_map if opt.instance_feat else self.label_map 
                        
-        object_np = self.object_map.cpu().numpy().astype(int) 
+        object_np = self.object_map.cpu().numpy().astype(int) #change the dtype of the given array object
         self.feat_map = self.Tensor(1, opt.feat_num, h, w).zero_()                 
         self.cluster_indices = np.zeros(self.opt.label_nc, np.uint8)
         for i in np.unique(object_np):    
