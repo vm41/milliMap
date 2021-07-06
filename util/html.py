@@ -1,3 +1,5 @@
+#Whenever a test script is run, the results are stored in a html file along with the images. This part of code stores the test results in the html file.
+
 import dominate #dominate is for creating html pages using python language
 from dominate.tags import *
 import os
