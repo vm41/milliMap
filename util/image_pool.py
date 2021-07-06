@@ -1,3 +1,5 @@
+#forms an array of images
+
 import random
 import torch
 from torch.autograd import Variable
