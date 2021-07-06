@@ -13,7 +13,7 @@ class ImagePool():
             return images
         return_images = []
         for image in images.data:
-            image = torch.unsqueeze(image, 0)
+            image = torch.unsqueeze(image, 0) #Returns a new tensor with a dimension of size one inserted at the specified position.
             if self.num_imgs < self.pool_size:
                 self.num_imgs = self.num_imgs + 1
                 self.images.append(image)
